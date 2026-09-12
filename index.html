@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Triangle School Calendar Explorer</title>
+    <link rel="stylesheet" href="styles.css?v=3" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Triangle School Calendar</p>
+          <h1>2026-27 Day-Off Explorer</h1>
+          <p class="intro">
+            Compare school holidays, breaks, and other days off.
+            Choose schools and day types, then click a date for details.
+          </p>
+        </div>
+        <div class="status-wrap">
+          <p id="statusMessage" class="status" role="status">Loading CSV...</p>
+          <p id="uploadHint" class="status muted" hidden>
+            If this page is opened from file explorer, load the file manually:
+            <label for="csvFileInput" class="link-button">Select CSV</label>
+          </p>
+        </div>
+      </header>
+
+      <section class="app-grid">
+        <aside class="sidebar">
+          <article class="panel">
+            <h2>Schools to Show</h2>
+            <div class="panel-actions">
+              <button type="button" class="ghost" id="selectAllSchools">All schools</button>
+              <button type="button" class="ghost" id="clearSchools">None</button>
+            </div>
+            <div id="schoolFilters" class="filters-grid"></div>
+          </article>
+
+          <article class="panel">
+            <h2>Type of Day</h2>
+            <div class="panel-actions">
+              <button type="button" class="ghost" id="selectAllTypes">All types</button>
+              <button type="button" class="ghost" id="clearTypes">None</button>
+            </div>
+            <div id="typeFilters" class="filters-grid"></div>
+          </article>
+
+          <article class="panel">
+            <h2>Legend</h2>
+            <p id="summaryText" class="summary">Choose filters above to update the view.</p>
+            <div id="legend" class="legend"></div>
+          </article>
+
+          <article class="panel">
+            <h2>Calendar Data Source</h2>
+            <p class="summary">
+              Calendars read directly from the <a href="./triangle_school_closures_2026_2027.csv">schedule CSV</a>.
+              Some schools have partial coverage; check event notes and sources.
+            </p>
+            <label for="csvFileInput">Preview a different CSV</label>
+            <input id="csvFileInput" type="file" accept=".csv,text/csv" />
+          </article>
+        </aside>
+
+        <main>
+          <section id="calendarArea" class="calendar-area"></section>
+          <p id="emptyState" class="empty-state" hidden>No days match the current filter.</p>
+        </main>
+      </section>
+    </div>
+
+    <dialog id="eventDrawer" class="drawer" aria-labelledby="drawerDate">
+      <div class="drawer-inner">
+        <header class="drawer-head">
+          <h3 id="drawerDate"></h3>
+          <button type="button" id="drawerClose" class="close-btn" autofocus>Close</button>
+        </header>
+        <div id="drawerBody"></div>
+      </div>
+    </dialog>
+
+    <noscript><p>Please enable JavaScript to use the calendar and filters.</p></noscript>
+    <script src="app.js?v=3"></script>
+  </body>
+</html>
