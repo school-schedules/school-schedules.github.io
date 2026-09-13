@@ -4,7 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Triangle School Calendar Explorer</title>
-    <link rel="stylesheet" href="styles.css?v=3" />
+    <meta name="description" content="Compare Triangle school days off and Durham County kindergarten day camps for 2026–27. Filter schools and camps, check dates, and follow registration links." />
+    <link rel="stylesheet" href="styles.css?v=4" />
   </head>
   <body>
     <div class="page-shell">
@@ -14,8 +15,13 @@
           <h1>2026-27 Day-Off Explorer</h1>
           <p class="intro">
             Compare school holidays, breaks, and other days off.
-            Choose schools and day types, then click a date for details.
+            Choose schools and day types, then click a date for school details
+            and Durham County camps for kindergarten.
           </p>
+          <nav class="page-nav" aria-label="Page navigation">
+            <a href="#calendarArea">Jump to calendar</a>
+            <a href="./camps.html">Camp directory & sources →</a>
+          </nav>
         </div>
         <div class="status-wrap">
           <p id="statusMessage" class="status" role="status">Loading CSV...</p>
@@ -38,6 +44,31 @@
           </article>
 
           <article class="panel">
+            <h2>Kindergarten Day Camps</h2>
+            <label class="filter-line"><input type="checkbox" id="showCamps" checked /> Show day camps</label>
+            <p id="campStatus" class="small" role="status">Loading camp research…</p>
+            <fieldset id="campOptions" disabled>
+              <legend class="visually-hidden">Camp filters</legend>
+              <label for="campAge">Child’s age on the camp date</label>
+              <select id="campAge">
+                <option value="5">Five — kindergarten</option>
+                <option value="6">Six — kindergarten</option>
+              </select>
+              <label class="filter-line"><input type="checkbox" id="multiDayCamps" /> Include multi-day / full-week camps</label>
+              <details class="provider-controls">
+                <summary>Choose camp providers</summary>
+                <div class="panel-actions">
+                  <button type="button" class="ghost" id="selectAllCamps">All camps</button>
+                  <button type="button" class="ghost" id="clearCamps">None</button>
+                </div>
+                <div id="campFilters" class="filters-grid"></div>
+              </details>
+            </fieldset>
+            <p class="small">Camp dates appear independently of school filters. Listings include holidays and breaks; seats are not checked live.</p>
+            <a href="./camps.html">All providers & registration links</a>
+          </article>
+
+          <article class="panel">
             <h2>Type of Day</h2>
             <div class="panel-actions">
               <button type="button" class="ghost" id="selectAllTypes">All types</button>
@@ -50,6 +81,7 @@
             <h2>Legend</h2>
             <p id="summaryText" class="summary">Choose filters above to update the view.</p>
             <div id="legend" class="legend"></div>
+            <p class="small"><span class="camp-count">3 camps</span> Published dates matching your camp filters</p>
           </article>
 
           <article class="panel">
@@ -81,6 +113,9 @@
     </dialog>
 
     <noscript><p>Please enable JavaScript to use the calendar and filters.</p></noscript>
-    <script src="app.js?v=3"></script>
+    <script src="csv.js?v=4"></script>
+    <script src="camp-data.js?v=4"></script>
+    <script src="app.js?v=4"></script>
+    <script src="camps.js?v=4"></script>
   </body>
 </html>

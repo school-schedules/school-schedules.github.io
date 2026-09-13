@@ -41,90 +41,6 @@ const state = {
   rangeStart: null,
   rangeEnd: null,
 };
-
-function parseCSV(text) {
-  const normalized = text.trim().replace(/^\uFEFF/, "").replace(/\r\n?/g, "\n");
-  const rows = [];
-  let i = 0;
-  let field = "";
-  let row = [];
-  let quoted = false;
-
-  const pushField = () => {
-    row.push(field);
-    field = "";
-  };
-
-  const pushRow = () => {
-    rows.push(row);
-    row = [];
-  };
-
-  while (i < normalized.length) {
-    const char = normalized[i];
-    const next = normalized[i + 1];
-
-    if (quoted) {
-      if (char === '"' && next === '"') {
-        field += '"';
-        i += 2;
-        continue;
-      }
-
-      if (char === '"') {
-        quoted = false;
-        i += 1;
-        continue;
-      }
-
-      field += char;
-      i += 1;
-      continue;
-    }
-
-    if (char === '"') {
-      quoted = true;
-      i += 1;
-      continue;
-    }
-
-    if (char === ",") {
-      pushField();
-      i += 1;
-      continue;
-    }
-
-    if (char === "\n") {
-      pushField();
-      pushRow();
-      i += 1;
-      continue;
-    }
-
-    field += char;
-    i += 1;
-  }
-
-  if (quoted) throw new Error("CSV contains an unclosed quoted field.");
-
-  if (field.length || row.length) {
-    pushField();
-    pushRow();
-  }
-
-  const headers = (rows[0] || []).map((header) => header.trim());
-  if (!["Date", "School", "Closure_Type"].every((header) => headers.includes(header))) {
-    throw new Error("CSV needs Date, School, and Closure_Type columns.");
-  }
-  return rows.slice(1).filter((row) => row.some((field) => field.trim())).map((rawRow) => {
-    const rowObj = {};
-    for (let c = 0; c < headers.length; c += 1) {
-      rowObj[headers[c]] = (rawRow[c] ?? "").trim();
-    }
-    return rowObj;
-  });
-}
-
 function toLocalDate(value) {
   if (!/^\d{4}-\d{2}-\d{2}$/.test(value || "")) return null;
   const parts = value.split("-").map((part) => Number(part));
@@ -315,15 +231,31 @@ function showDetails(date, records) {
   const safeRecords = records || [];
   if (!(date instanceof Date) || Number.isNaN(date.getTime())) {
     drawerDate.textContent = "Date unavailable";
-  } else {
-    drawerDate.textContent = formatDate(date);
+    drawerBody.textContent = "Choose a valid date from the calendar.";
+    drawer.dataset.date = "";
+    if (!drawer.open) drawer.showModal();
+    return;
   }
+  drawerDate.textContent = formatDate(date);
   drawerBody.innerHTML = "";
+  drawer.dataset.date = dateKey(date);
+  const campCount = getCampsForDate(dateKey(date)).length;
+  if (campCount) {
+    const jump = document.createElement("button");
+    jump.type = "button";
+    jump.className = "jump-to-camps";
+    jump.textContent = `View ${campCount} camp option${campCount === 1 ? "" : "s"} ↓`;
+    jump.addEventListener("click", () => drawerBody.querySelector(".camp-details").scrollIntoView({ block: "start" }));
+    drawerBody.appendChild(jump);
+  }
+  const schoolHeading = document.createElement("h3");
+  schoolHeading.textContent = "School days off";
+  drawerBody.appendChild(schoolHeading);
 
   if (!safeRecords.length) {
-    drawerBody.innerHTML = "<p>No matching events for the selected filters.</p>";
-    drawer.showModal();
-    return;
+    const message = document.createElement("p");
+    message.textContent = "No matching school events for the selected filters.";
+    drawerBody.appendChild(message);
   }
 
   const eventList = document.createElement("ul");
@@ -371,7 +303,8 @@ function showDetails(date, records) {
   });
 
   drawerBody.appendChild(eventList);
-  drawer.showModal();
+  appendCampDetails(drawerBody, dateKey(date));
+  if (!drawer.open) drawer.showModal();
 }
 
 function hideDetails() {
@@ -435,8 +368,9 @@ function renderMonths() {
 
       const key = dateKey(cellDate);
       const activeEvents = cellDate.getMonth() === month ? getFilteredRecordsForDate(key) : [];
+      const activeCamps = cellDate.getMonth() === month ? getCampsForDate(key) : [];
       cell.dataset.date = key;
-      cell.setAttribute("aria-label", `${formatDate(cellDate)}: ${activeEvents.length} matching events`);
+      cell.setAttribute("aria-label", `${formatDate(cellDate)}: ${activeEvents.length} matching school events, ${activeCamps.length} published camp options`);
       const isToday =
         cellDate.getDate() === today.getDate() &&
         cellDate.getMonth() === today.getMonth() &&
@@ -463,6 +397,16 @@ function renderMonths() {
           plus.textContent = `+${activeEvents.length - 2}`;
           cell.appendChild(plus);
         }
+      }
+
+      if (activeCamps.length) {
+        anyMatches = true;
+        cell.classList.add("has-camp");
+        const badge = document.createElement("span");
+        badge.className = "camp-count";
+        badge.textContent = `${activeCamps.length} camp${activeCamps.length === 1 ? "" : "s"}`;
+        badge.title = "Published camp dates; click for booking requirements and registration links";
+        cell.appendChild(badge);
       }
 
       if (!cell.classList.contains("other-month")) {
@@ -549,6 +493,30 @@ function handleDataLoad(csvText, source) {
   initializeControls();
   statusMessage.textContent = `Loaded ${state.rows.length} entries from ${source}`;
   uploadHint.hidden = true;
+  openLinkedDate();
+}
+
+let linkedDateOpened = false;
+function openLinkedDate() {
+  if (linkedDateOpened || !state.rows.length || (!campState.data && !campState.error)) return;
+  const params = new URLSearchParams(location.search);
+  const key = params.get("date");
+  const date = toLocalDate(key);
+  if (!date) return;
+  if (params.get("age") === "6") {
+    campState.age = 6;
+    document.getElementById("campAge").value = "6";
+  }
+  if (params.get("multi") === "1") {
+    campState.multiDay = true;
+    document.getElementById("multiDayCamps").checked = true;
+  }
+  renderMonths();
+  const cell = calendarArea.querySelector(`.day-cell[data-date="${key}"]:not(.other-month)`);
+  if (!cell) return;
+  linkedDateOpened = true;
+  cell.scrollIntoView({ block: "center" });
+  showDetails(date, getFilteredRecordsForDate(key));
 }
 
 async function tryFetchCSV() {
@@ -585,4 +553,3 @@ csvFileInput.addEventListener("change", async (event) => {
 });
 
 wireButtons();
-tryFetchCSV();
