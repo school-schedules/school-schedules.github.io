@@ -36,11 +36,14 @@
         <aside class="sidebar">
           <article class="panel">
             <h2>Schools to Show</h2>
-            <div class="panel-actions">
-              <button type="button" class="ghost" id="selectAllSchools">All schools</button>
-              <button type="button" class="ghost" id="clearSchools">None</button>
-            </div>
-            <div id="schoolFilters" class="filters-grid"></div>
+            <details class="provider-controls">
+              <summary>Choose schools</summary>
+              <div class="panel-actions">
+                <button type="button" class="ghost" id="selectAllSchools">All schools</button>
+                <button type="button" class="ghost" id="clearSchools">None</button>
+              </div>
+              <div id="schoolFilters" class="filters-grid"></div>
+            </details>
           </article>
 
           <article class="panel">
@@ -70,11 +73,14 @@
 
           <article class="panel">
             <h2>Type of Day</h2>
-            <div class="panel-actions">
-              <button type="button" class="ghost" id="selectAllTypes">All types</button>
-              <button type="button" class="ghost" id="clearTypes">None</button>
-            </div>
-            <div id="typeFilters" class="filters-grid"></div>
+            <details class="provider-controls">
+              <summary>Choose day types</summary>
+              <div class="panel-actions">
+                <button type="button" class="ghost" id="selectAllTypes">All types</button>
+                <button type="button" class="ghost" id="clearTypes">None</button>
+              </div>
+              <div id="typeFilters" class="filters-grid"></div>
+            </details>
           </article>
 
           <article class="panel">
