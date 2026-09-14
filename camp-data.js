@@ -94,7 +94,7 @@ const CampData = (() => {
       }
     });
     sessions.sort((a, b) => a.Start_Date.localeCompare(b.Start_Date) || a.provider.Name.localeCompare(b.provider.Name));
-    const checked = [...new Set(providers.map(p => p.Last_Checked))].sort().join(", ");
+    const checked = [...new Set(providers.map(p => p.Last_Checked))].sort().map(displayDate).join("; ");
     return { providers, sessions, byProvider, byDate, checked };
   }
 

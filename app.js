@@ -224,7 +224,7 @@ function getFilteredRecordsForDate(rowDateKey) {
 
 function getClassForPill(row) {
   const color = schoolColor(row.school);
-  return `border-color:${color}; color:${color};`;
+  return `border-color:${color}; color:var(--ink);`;
 }
 
 function showDetails(date, records) {
@@ -276,7 +276,7 @@ function showDetails(date, records) {
       const chip = document.createElement("span");
       chip.dataset.chip = "";
       chip.style.borderColor = row.color;
-      chip.style.color = row.color;
+      chip.style.color = "var(--ink)";
       chip.textContent = label;
       chips.appendChild(chip);
     });

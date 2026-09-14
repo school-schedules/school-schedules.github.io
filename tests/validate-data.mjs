@@ -14,11 +14,11 @@ const matches = (day, age = 5, multi = false) => (dates.get(day) || []).filter(s
   Number(s.provider.Minimum_Age) <= age && (multi || s.Booking_Type === 'single-day'));
 const has = (day, id, age = 5, multi = false) => matches(day, age, multi).some(s => s.Provider_ID === id);
 
-assert.equal(data.providers.length, 18);
-assert.equal(data.sessions.length, 177);
-assert.equal(data.sessions.filter(s => s.Booking_Type === 'single-day').length, 155);
+assert.equal(data.providers.length, 19);
+assert.equal(data.sessions.length, 190);
+assert.equal(data.sessions.filter(s => s.Booking_Type === 'single-day').length, 168);
 assert.equal(data.sessions.filter(s => s.Booking_Type === 'multi-day').length, 22);
-assert.equal(data.providers.filter(p => p.Status === 'dated').length, 10);
+assert.equal(data.providers.filter(p => p.Status === 'dated').length, 11);
 assert.equal(new Set(data.sessions.map(s => [s.Provider_ID,s.Start_Date,s.End_Date,s.Program].join('|'))).size, data.sessions.length);
 for (const session of data.sessions) {
   assert.ok(session.Start_Date >= '2026-09-01' && session.End_Date <= '2027-05-31', 'session stays within school-year scope');
@@ -30,6 +30,10 @@ assert.equal(matches('2026-09-21').length, 7, 'seven published age-five single-d
 assert.equal(matches('2026-09-21',6).length, 8, 'six-year-olds add Ninja');
 assert.ok(!has('2026-09-21','jcc'), 'no inference of JCC care on Yom Kippur');
 assert.ok(has('2026-09-30','jcc'));
+assert.ok(has('2026-09-30','dfc'));
+assert.ok(has('2026-11-23','dfc'));
+assert.ok(has('2027-02-10','dfc'));
+assert.ok(!has('2027-04-05','dfc'), 'DFC spring dates are not inferred from the school calendar');
 assert.ok(!has('2027-03-01','jcc'), 'preschool-only JCC date excluded');
 assert.ok(has('2026-09-28','museum',5,true), 'museum booking portal start date preferred');
 assert.ok(!has('2026-09-30','museum'), 'museum week cannot be booked as a single day');

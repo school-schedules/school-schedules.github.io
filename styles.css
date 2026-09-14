@@ -34,6 +34,7 @@ body {
   background: radial-gradient(circle at 10% 0%, #ffe7c6 0%, var(--bg-1) 45%, var(--bg-2) 100%);
   color: var(--ink);
   font-family: "Avenir Next", "Trebuchet MS", "Segoe UI", sans-serif;
+  line-height: 1.5;
   min-height: 100vh;
 }
 
@@ -266,7 +267,7 @@ input[type="file"] {
 }
 
 .day-number {
-  font-size: 0.8rem;
+  font-size: 0.88rem;
   font-weight: 600;
 }
 
@@ -277,7 +278,7 @@ input[type="file"] {
   border-radius: 999px;
   padding: 2px 1px;
   margin-top: 2px;
-  font-size: 0.6rem;
+  font-size: 0.7rem;
   color: #202020;
   background: #fff;
   border: 1px solid;
@@ -293,7 +294,7 @@ input[type="file"] {
 }
 
 .event-more {
-  font-size: 0.67rem;
+  font-size: 0.75rem;
   color: #594d43;
 }
 
@@ -406,7 +407,7 @@ summary { cursor: pointer; font-weight: 600; line-height: 1.5; }
 .provider-controls[open] summary { margin-bottom: 12px; }
 .camp-count {
   display: inline-block; border-radius: 5px; background: #dcece2; color: #204b3b;
-  padding: 3px 2px; font-size: .61rem; font-weight: 700; line-height: 1.25;
+  padding: 3px 2px; font-size: .7rem; font-weight: 700; line-height: 1.25;
 }
 .day-cell .camp-count { margin-top: auto; }
 .has-camp { border-bottom: 3px solid #4d826c; }
@@ -434,12 +435,13 @@ summary { cursor: pointer; font-weight: 600; line-height: 1.5; }
 .provider-notes { background: #f6ecd9; padding: 10px; border-radius: 8px; font-size: .85rem; }
 .session-schedule { margin-top: 20px; border-top: 1px solid var(--line); padding-top: 14px; }
 .table-scroll { overflow-x: auto; margin-top: 12px; }
-table { width: 100%; border-collapse: collapse; font-size: .8rem; }
+table { width: 100%; border-collapse: collapse; font-size: .9rem; line-height: 1.5; }
 caption { text-align: left; padding-bottom: 12px; color: var(--muted); }
 th, td { text-align: left; padding: 10px 8px; border-bottom: 1px solid var(--line); vertical-align: top; }
 th { color: var(--deep); }
-td .small { margin: 6px 0 0; font-size: .75rem; }
+td .small { margin: 6px 0 0; font-size: .85rem; }
 .table-links a { display: block; margin-bottom: 10px; }
+.mobile-schedule-label { display: none; }
 .research-notes { margin-top: 24px; line-height: 1.6; }
 .research-notes details { margin: 16px 0; }
 .research-notes li { margin: 10px 0; }
@@ -499,4 +501,38 @@ td .small { margin: 6px 0 0; font-size: .75rem; }
   .day-cell {
     padding: 4px 1px;
   }
+
+  .session-schedule table,
+  .session-schedule tbody,
+  .session-schedule tr,
+  .session-schedule td {
+    display: block;
+    width: 100%;
+  }
+
+  .session-schedule caption { display: block; }
+  .session-schedule thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+
+  .session-schedule tbody tr {
+    border-top: 1px solid var(--line);
+    padding: 14px 0;
+  }
+
+  .session-schedule td { border: 0; padding: 4px 0; }
+  .session-schedule td > strong { font-size: 1rem; }
+  .mobile-schedule-label {
+    display: block;
+    color: var(--deep);
+    font-size: .83rem;
+    font-weight: 700;
+    margin: 8px 0 4px;
+  }
+  .table-links a { display: inline-block; margin: 0 16px 0 0; padding: 10px 0; }
 }

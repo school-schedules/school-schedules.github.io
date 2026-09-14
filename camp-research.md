@@ -1,8 +1,8 @@
 # Durham County kindergarten school-break camps, 2026–27
 
-Research checked **September 12, 2026**. Scope: September 2026–May 2027, matching the existing school calendar.
+Research initially checked **September 12, 2026**. Duke Faculty Club was added from an official check on **September 14, 2026**. Scope: September 2026–May 2027, matching the existing school calendar.
 
-**18 providers and leads were identified. Ten have dated sessions: 155 single-day sessions and 22 multi-day sessions.** Eight dated providers explicitly include kindergarten or age five. Durham Soccer Academy is a ninth option with a broad elementary-age description; confirm kindergarten placement. USA Ninja Challenge is the tenth and requires age six.
+**19 providers and leads were identified. Eleven have dated sessions: 168 single-day sessions and 22 multi-day sessions.** Nine dated providers explicitly include kindergarten or age five. Durham Soccer Academy is a tenth option with a broad elementary-age description; confirm kindergarten placement. USA Ninja Challenge is the eleventh and requires age six.
 
 The interactive [directory](./camps.html) contains eligibility, locations, hours, costs, enrollment links, individual schedules, source conflicts and exclusions. The [calendar](./index.html) defaults to age five and single-day bookings.
 
@@ -29,6 +29,7 @@ The interactive [directory](./camps.html) contains eligibility, locations, hours
 | [The Boulder Garden](https://www.thebouldergarden.com/holiday-camps) | 5 | 0 | 2026-09-21; 2026-09-30; 2026-11-02; 2026-11-03; 2026-11-11 |
 | [Durham Soccer Academy](https://www.durhamsocceracademy.com/teacherworkdaycamps) | 12 | 0 | 2026-09-21; 2026-09-30; 2026-11-02; 2026-11-03; 2026-11-11; 2026-11-23; 2026-11-24; 2026-12-21; 2026-12-22; 2026-12-28; 2026-12-29; 2026-12-30 |
 | [USA Ninja Challenge Durham](https://usaninjachallenge.com/locations/durham-nc/camps) | 25 | 0 | 2026-09-21; 2026-10-05; 2026-10-19; 2026-11-02; 2026-11-23; 2026-11-24; 2026-11-25; 2026-11-27; 2026-12-21; 2026-12-22; 2026-12-23; 2026-12-24; 2026-12-28; 2026-12-29; 2026-12-30; 2026-12-31; 2027-01-04; 2027-01-18; 2027-01-25; 2027-02-15; 2027-03-15; 2027-03-22; 2027-03-29; 2027-05-10; 2027-05-31 |
+| [Duke Faculty Club](https://facultyclub.duke.edu/camps/miniCamp/) | 13 | 0 | 2026-09-30; 2026-11-02; 2026-11-03; 2026-11-11; 2026-11-23; 2026-11-24; 2026-11-25; 2026-12-21; 2026-12-22; 2026-12-23; 2027-01-18; 2027-01-19; 2027-02-10 |
 
 Dates and direct session registration URLs are in [camp_sessions.csv](./camp_sessions.csv). Provider-level references are in [camp_providers.csv](./camp_providers.csv).
 
@@ -39,14 +40,14 @@ Counts below use single-day bookings and the age-five kindergarten filter, inclu
 | DPS date | Published providers |
 |---|---|
 | 2026-09-21 | 7 — Durham Arts Council, Durham Parks & Recreation, Durham Soccer Academy, Piedmont Wildlife Center, Schoolhouse of Wonder, The Boulder Garden, Walltown Children’s Theatre |
-| 2026-09-30 | 6 — Durham Arts Council, Durham Parks & Recreation, Durham Soccer Academy, Jewish for Good · Levin JCC, The Boulder Garden, Walltown Children’s Theatre |
-| 2026-11-02 | 7 — Durham Arts Council, Durham Parks & Recreation, Durham Soccer Academy, Jewish for Good · Levin JCC, Piedmont Wildlife Center, Schoolhouse of Wonder, The Boulder Garden |
-| 2026-11-03 | 7 — Durham Arts Council, Durham Soccer Academy, Jewish for Good · Levin JCC, Museum of Life and Science, Piedmont Wildlife Center, Schoolhouse of Wonder, The Boulder Garden |
-| 2026-11-23 | 4 — Durham Parks & Recreation, Durham Soccer Academy, Jewish for Good · Levin JCC, Piedmont Wildlife Center |
-| 2026-12-21 | 4 — Durham Soccer Academy, Jewish for Good · Levin JCC, Museum of Life and Science, Piedmont Wildlife Center |
-| 2026-12-22 | 4 — Durham Soccer Academy, Jewish for Good · Levin JCC, Museum of Life and Science, Piedmont Wildlife Center |
-| 2027-01-19 | 6 — Durham Arts Council, Durham Parks & Recreation, Jewish for Good · Levin JCC, Museum of Life and Science, Piedmont Wildlife Center, Walltown Children’s Theatre |
-| 2027-02-10 | 5 — Durham Arts Council, Jewish for Good · Levin JCC, Museum of Life and Science, Piedmont Wildlife Center, Walltown Children’s Theatre |
+| 2026-09-30 | 7 — Duke Faculty Club, Durham Arts Council, Durham Parks & Recreation, Durham Soccer Academy, Jewish for Good · Levin JCC, The Boulder Garden, Walltown Children’s Theatre |
+| 2026-11-02 | 8 — Duke Faculty Club, Durham Arts Council, Durham Parks & Recreation, Durham Soccer Academy, Jewish for Good · Levin JCC, Piedmont Wildlife Center, Schoolhouse of Wonder, The Boulder Garden |
+| 2026-11-03 | 8 — Duke Faculty Club, Durham Arts Council, Durham Soccer Academy, Jewish for Good · Levin JCC, Museum of Life and Science, Piedmont Wildlife Center, Schoolhouse of Wonder, The Boulder Garden |
+| 2026-11-23 | 5 — Duke Faculty Club, Durham Parks & Recreation, Durham Soccer Academy, Jewish for Good · Levin JCC, Piedmont Wildlife Center |
+| 2026-12-21 | 5 — Duke Faculty Club, Durham Soccer Academy, Jewish for Good · Levin JCC, Museum of Life and Science, Piedmont Wildlife Center |
+| 2026-12-22 | 5 — Duke Faculty Club, Durham Soccer Academy, Jewish for Good · Levin JCC, Museum of Life and Science, Piedmont Wildlife Center |
+| 2027-01-19 | 7 — Duke Faculty Club, Durham Arts Council, Durham Parks & Recreation, Jewish for Good · Levin JCC, Museum of Life and Science, Piedmont Wildlife Center, Walltown Children’s Theatre |
+| 2027-02-10 | 6 — Duke Faculty Club, Durham Arts Council, Jewish for Good · Levin JCC, Museum of Life and Science, Piedmont Wildlife Center, Walltown Children’s Theatre |
 | 2027-04-05 | 6 — Durham Arts Council, Durham Parks & Recreation, Jewish for Good · Levin JCC, Museum of Life and Science, Piedmont Wildlife Center, Walltown Children’s Theatre |
 | 2027-04-28 | 4 — Durham Arts Council, Durham Parks & Recreation, Jewish for Good · Levin JCC, Walltown Children’s Theatre |
 
@@ -74,6 +75,7 @@ Every DPS teacher-workday date currently present in the school CSV has at least 
 - **Boulder Garden:** the fresh booking list supplies September 21 and 30, November 2, 3 and 11. An older snapshot showed September 7 instead of November 11. Fresh registration content is used.
 - **Ninja:** 26 listings were visible. The September 28 title conflicts with a September 28–29 duration, so that one session is omitted. The remaining 25 are included for six-year-olds. The portal may ask the user to choose the Durham location.
 - **Arts Council:** only specifically labeled single days are offered as single-day bookings. November 23–25 and December 28–31 have no verified prorated price, so their total cost is marked for confirmation. Winter opens October 2, spring December 4.
+- **Duke Faculty Club (September 14):** the fresh Mini Camps page explicitly labels its 13 dates as the 2026–27 school year. Search-index snapshots still showed the 2025–26 list; the current program page supplies the dates here. Mini Camps include kindergarten–grade 6 students, members and nonmembers, for $80/$90 per day, 8:30 am–5:30 pm. The page mentions spring-break daily/weekly pricing but publishes no spring-break dates yet, so no weekly or later spring sessions are inferred. The club calendar embeds public CourtReserve; that host blocked both direct fetching and an isolated browser. The registration URL is the link on Duke’s current program page; portal event details, additional calendar events and seats could not be verified. Summer KinderCamp, Summer Camp and Tennis Camp run outside this directory’s school-year scope.
 
 ## Search method and limits
 
@@ -96,15 +98,16 @@ The search stopped after the major local program categories and recurring provid
 
 ## Maintenance priorities
 
-1. Check Lakewood YMCA on/after September 14, 2026 for dated Holiday Care listings.
-2. Check Durham Arts Council winter booking October 2 and spring booking December 4.
-3. Request the current school-break schedules and kindergarten rules from the seven unverified/announced leads, without inferring dates from a school calendar.
-4. Resolve Ninja September 28/29, JCC afternoon handoff and Walltown bundle wording.
-5. Recheck inventories and spring announcements before relying on a date; update Last_Checked only after an actual source check.
+1. Check Duke Faculty Club again for spring 2027 mini-camp dates when they are announced.
+2. Check Lakewood YMCA on/after September 14, 2026 for dated Holiday Care listings.
+3. Check Durham Arts Council winter booking October 2 and spring booking December 4.
+4. Request the current school-break schedules and kindergarten rules from the seven unverified/announced leads, without inferring dates from a school calendar.
+5. Resolve Ninja September 28/29, JCC afternoon handoff and Walltown bundle wording.
+6. Recheck inventories and spring announcements before relying on a date; update Last_Checked only after an actual source check.
 
 ## Sources
 
-The following are the provider-level primary sources and official registration destinations. Each CSV session also has its own date evidence URL. All were checked during this research pass on September 12, 2026.
+The following are the provider-level primary sources and official registration destinations. Each CSV session also has its own date evidence URL. Initial sources were checked September 12, 2026; Duke Faculty Club was checked September 14, with the CourtReserve access limitation documented above.
 
 - [Jewish for Good · Levin JCC: program page](https://www.jewishforgood.org/schools-out-camp); [Check dates & register](https://operations.daxko.com/Online/5190/ProgramsV2/Search.mvc?keywords=school%27s+out&program_id=CMP48774&expanded=categories%2Clocations&coming_soon=False&all_categories=false&location_ids=B553&all_locations=false&date_ranges%5B0%5D.start=&date_ranges%5B0%5D.end=&birth_dates=); [additional source 1](https://www.jewishforgood.org/contact).
 - [Walltown Children’s Theatre: program page](https://www.walltownchildrenstheatre.org/teacher-workday-camps.html); [Check dates & register](https://dancestudio-pro.com/online/walltownchildrenstheatre); [additional source 1](https://www.walltownchildrenstheatre.org/program-disciplines.html).
@@ -116,6 +119,7 @@ The following are the provider-level primary sources and official registration d
 - [The Boulder Garden: program page](https://www.thebouldergarden.com/holiday-camps); [Check dates & register](https://climber.hellocapitan.com/thebouldergarden/schedule/event-type-details/3046/); [additional source 1](https://www.thebouldergarden.com/).
 - [Durham Soccer Academy: program page](https://www.durhamsocceracademy.com/teacherworkdaycamps); [Check dates & register](https://www.durhamsocceracademy.com/teacherworkdaycampregistration).
 - [USA Ninja Challenge Durham: program page](https://usaninjachallenge.com/locations/durham-nc/camps); [Check dates & register](https://portal.iclasspro.com/usaninjadurham/camps/2?typeId=2&next=camps&nextTitle=One%20Day%20Camp&pluralTitle=One%20Day%20Camps&sortBy=time).
+- [Duke Faculty Club: program page](https://facultyclub.duke.edu/camps/miniCamp/); [Check dates & register](https://app.courtreserve.com/Online/Events/Public/2472/2237282); [additional source 1](https://facultyclub.duke.edu/calendar/).
 - [Lakewood YMCA: program page](https://ymcatriangle.org/programs/holiday-care-days); [Check dates & register](https://www.ymcatriangleregister.org/personifyebusiness/default.aspx?PC=CC&PSC=HCDAY&Related=150000000142%7C0&TabID=642&WF=CMS_MP_WORKFLOW&pId=33508010).
 - [Bull City Gymnastics: program page](https://www.bullcitygymnastics.com/); [Check dates & register](https://portal.iclasspro.com/bullcitygymnastics/login); [additional source 1](https://www.bullcitygymnastics.com/camps); [additional source 2](https://www.bullcitygymnastics.com/portal/customer-portal).
 - [The Little Gym of Durham: program page](https://www.thelittlegym.com/north-carolina-durham/camps/); [Check camp calendar](https://www.thelittlegym.com/north-carolina-durham/camps/).

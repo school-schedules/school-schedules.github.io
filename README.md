@@ -10,7 +10,7 @@ This static website reads `triangle_school_closures_2026_2027.csv` on each page 
 - Durham County camp options for kindergarten, with age, provider and multi-day booking filters,
 - a [camp directory](https://school-schedules.github.io/camps.html) with schedules, registration links, sources and undated leads.
 
-The camp research covers September 2026–May 2027 and was checked September 12, 2026. See [camp-research.md](camp-research.md) for the search scope, evidence decisions and follow-up priorities. Published dates do not guarantee available seats.
+The camp research covers September 2026–May 2027. Initial providers were checked September 12, 2026; Duke Faculty Club Mini Camps were added September 14 with 13 published single-day sessions open to members and nonmembers in kindergarten–grade 6. See [camp-research.md](camp-research.md) for the search scope, evidence decisions and follow-up priorities. Published dates do not guarantee available seats.
 
 To run:
 
@@ -33,7 +33,9 @@ Only `dated` providers may have session rows. Do not generate camp dates from sc
 
 To validate data after edits, run `node tests/validate-data.mjs` (Node 18+; no packages needed). The tests include the initial research inventory counts; update those assertions when intentionally adding or removing sessions. The original 137 school records are preserved.
 
-Verification for this update: data integrity checks and 48 browser checks covering school filters, camp controls, age eligibility, multi-day bookings, source/registration links, directory search, mobile layout, dialog dismissal and CSV failure recovery. Browser checks were run in isolated headless Chrome.
+Initial verification: data integrity checks and 48 browser checks covering school filters, camp controls, age eligibility, multi-day bookings, source/registration links, directory search, mobile layout, dialog dismissal and CSV failure recovery. The September 14 Duke Faculty Club addition passed data integrity checks and 16 focused browser assertions covering its sessions, links, search, mobile width, calendar date link and age/provider filters. Browser checks were run in isolated headless Chrome.
+
+The readability update increases schedule and calendar-label text sizes, uses dark school-label text with colored borders, formats research dates in words, and stacks schedule details on phones. Both pages passed overflow checks at 320, 390, 768, 1024 and 1440 pixels with all provider schedules expanded; mobile tables retain screen-reader semantics. Desktop and phone previews were also inspected visually.
 
 ## Publish and update
 
